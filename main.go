@@ -7,6 +7,7 @@ import (
 	"os"
 )
 
+// Weather struct
 type Weather struct {
 	Coord struct {
 		Lon float64 `json:"lon"`
