@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	//"io/ioutil"
 	"net/http"
 	"os"
 )
@@ -62,14 +61,13 @@ func main() {
 	}
 	defer resp.Body.Close()
 
-	// p, _ := ioutil.ReadAll(resp.Body)
-	// fmt.Println(string(p))
-
 	var data Weather
 	if err = json.NewDecoder(resp.Body).Decode(&data); err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Println(data.Weather)
+		for _, w := range data.Weather {
+			fmt.Println(w.Main)
+		}
 	}
 
 }
